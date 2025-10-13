@@ -4,35 +4,72 @@ local Window = Rayfield:CreateWindow({
    Icon = 0,
    LoadingTitle = "Danny’s Hub Fisch",
    LoadingSubtitle = "by NAME GOES HERE",
-   ShowText = "Rayfield", -- for mobile users to unhide rayfield, change if you'd like
-   Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+   ShowText = "Rayfield", 
+   Theme = "Default",
+
 
    ToggleUIKeybind = "K",
 
-   DisableRayfieldPrompts = false,
-   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
 
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false,
    ConfigurationSaving = {
       Enabled = true,
-      FolderName = nil, -- Create a custom folder for your hub/game
+      FolderName = nil,
       FileName = "Big Hub"
    },
 
+
    Discord = {
-      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+      Enabled = false,
       Invite = "https://discord.gg/xDdhnjQzBC",
       RememberJoins = false 
    },
 
-   KeySystem = true, -- Set this to true to use our key system
+
+   KeySystem = true,
    KeySettings = {
       Title = "Danny's Hub Fisch",
       Subtitle = "Key System",
       Note = "Join discord for key https://discord.gg/xDdhnjQzBC",
       FileName = "DANNY-FISCH",
       SaveKey = false,
-      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      GrabKeyFromSite = false,
       Key = {"DANNY67"}
    }
+})
+local Tab = Window:CreateTab("MainFarm", 4483362458)
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Cast",
+   CurrentValue = false,
+   Flag = "Cast rod",
+   Callback = function(Value)
+    -- put script here
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Catch",
+   CurrentValue = false,
+   Flag = "Catch Fish",
+   Callback = function(Value)
+    -- put script here
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Equip Rod",
+   CurrentValue = false,
+   Flag = "Rod Equip",
+   Callback = function(Value)
+    -- put script here
+   end,
+})
+
+
+local Tab = Window:CreateTab("Extra", 4483362458)
+local Button = Tab:CreateButton({
+   Name = "Infinite Yield",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+   end,
 })
 
