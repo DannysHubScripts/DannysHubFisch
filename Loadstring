@@ -1,1 +1,1 @@
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DannysHubScripts/DannysHubFisch/refs/heads/main/Danny's%20Hub%20Fisch"))()
