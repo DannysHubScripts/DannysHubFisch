@@ -3,7 +3,7 @@ local Window = Rayfield:CreateWindow({
    Name = "Danny’s Hub Fisch",
    Icon = 0,
    LoadingTitle = "Danny’s Hub Fisch",
-   LoadingSubtitle = "Script by Jasper, GUI by Colton",
+   LoadingSubtitle = "Script by HanzoRTX & Colton GUI by Colton"
    ShowText = "Rayfield", 
    Theme = "DarkBlue",
 
@@ -42,21 +42,35 @@ local Tab = Window:CreateTab("MainFarm", 4483362458)
 local Toggle = Tab:CreateToggle({
    Name = "Auto Cast",
    CurrentValue = false,
-   Flag = "Cast rod",
+   Flag = "Cast rod (not available rn)",
    Callback = function(Value)
-    -- put script here
+	-- script goes here
    end,
 })
-local Toggle = Tab:CreateToggle({
-   Name = "Auto Catch",
+local Toggle = Tab:CreateButton({
+   Name = "Auto Catch (rejoin to turn off)",
    CurrentValue = false,
    Flag = "Catch Fish",
    Callback = function(Value)    
-    -- put script here
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+
+local reelfinished = ReplicatedStorage.events.reelfinished
+
+
+while true do
+    reelfinished:FireServer(
+        100,
+        false
+    )
+    wait(1)
+end
+
+
     end,
 })
 local Toggle = Tab:CreateToggle({
-   Name = "Auto Equip Rod",
+   Name = "Auto Equip Rod (not available rn)",
    CurrentValue = false,
    Flag = "Rod Equip",
    Callback = function(Value)
@@ -72,3 +86,6 @@ local Button = Tab:CreateButton({
    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
    end,
 })
+
+
+
