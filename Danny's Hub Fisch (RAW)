@@ -8,35 +8,7 @@ local Window = Rayfield:CreateWindow({
    Theme = "DarkBlue",
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    ToggleUIKeybind = "K",
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
    DisableRayfieldPrompts = false,
@@ -48,39 +20,11 @@ local Window = Rayfield:CreateWindow({
    },
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    Discord = {
       Enabled = false,
       Invite = "https://discord.gg/xDdhnjQzBC",
       RememberJoins = false 
    },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
    KeySystem = true,
@@ -130,3 +74,4 @@ local Button = Tab:CreateButton({
    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
    end,
 })
+
