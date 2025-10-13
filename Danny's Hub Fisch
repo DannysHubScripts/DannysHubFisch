@@ -3,12 +3,12 @@ local Window = Rayfield:CreateWindow({
    Name = "Danny’s Hub Fisch",
    Icon = 0,
    LoadingTitle = "Danny’s Hub Fisch",
-   LoadingSubtitle = "by NAME GOES HERE",
+   LoadingSubtitle = "Script by Jasper, GUI by Colton",
    ShowText = "Rayfield", 
    Theme = "Default",
 
 
-   ToggleUIKeybind = "K",
+   ToggleUIKeybind = "T",
 
 
    DisableRayfieldPrompts = false,
