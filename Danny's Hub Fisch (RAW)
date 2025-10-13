@@ -5,10 +5,38 @@ local Window = Rayfield:CreateWindow({
    LoadingTitle = "Danny’s Hub Fisch",
    LoadingSubtitle = "Script by Jasper, GUI by Colton",
    ShowText = "Rayfield", 
-   Theme = "Default",
+   Theme = "DarkBlue",
 
 
-   ToggleUIKeybind = "T",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ToggleUIKeybind = "K",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
    DisableRayfieldPrompts = false,
@@ -20,11 +48,39 @@ local Window = Rayfield:CreateWindow({
    },
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    Discord = {
       Enabled = false,
       Invite = "https://discord.gg/xDdhnjQzBC",
       RememberJoins = false 
    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
    KeySystem = true,
@@ -51,9 +107,9 @@ local Toggle = Tab:CreateToggle({
    Name = "Auto Catch",
    CurrentValue = false,
    Flag = "Catch Fish",
-   Callback = function(Value)
+   Callback = function(Value)    
     -- put script here
-   end,
+    end,
 })
 local Toggle = Tab:CreateToggle({
    Name = "Auto Equip Rod",
@@ -65,6 +121,8 @@ local Toggle = Tab:CreateToggle({
 })
 
 
+
+
 local Tab = Window:CreateTab("Extra", 4483362458)
 local Button = Tab:CreateButton({
    Name = "Infinite Yield",
@@ -72,4 +130,3 @@ local Button = Tab:CreateButton({
    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
    end,
 })
-
