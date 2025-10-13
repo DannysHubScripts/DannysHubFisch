@@ -3,12 +3,16 @@ local Window = Rayfield:CreateWindow({
    Name = "Danny’s Hub Fisch",
    Icon = 0,
    LoadingTitle = "Danny’s Hub Fisch",
-   LoadingSubtitle = "Script by HanzoRTX & Colton GUI by Colton"
+   LoadingSubtitle = "Script by HanzoRTX & Colton GUI by Colton",
    ShowText = "Rayfield", 
    Theme = "DarkBlue",
 
 
+
+
    ToggleUIKeybind = "K",
+
+
 
 
    DisableRayfieldPrompts = false,
@@ -20,11 +24,15 @@ local Window = Rayfield:CreateWindow({
    },
 
 
+
+
    Discord = {
       Enabled = false,
       Invite = "https://discord.gg/xDdhnjQzBC",
       RememberJoins = false 
    },
+
+
 
 
    KeySystem = true,
@@ -35,16 +43,57 @@ local Window = Rayfield:CreateWindow({
       FileName = "DANNY-FISCH",
       SaveKey = false,
       GrabKeyFromSite = false,
-      Key = {"DANNY67"}
+      Key = {"DannyFisch1234"}
    }
 })
 local Tab = Window:CreateTab("MainFarm", 4483362458)
+local Input = Tab:CreateInput({
+   Name = "Discord : https://discord.gg/xDdhnjQzBC",
+   CurrentValue = "",
+   PlaceholderText = "",
+   RemoveTextAfterFocusLost = false,
+   Flag = "DiscordInvite",
+   Callback = function(Text)
+  -- script goes here
+   end,
+})
+
+
 local Toggle = Tab:CreateToggle({
-   Name = "Auto Cast",
+   Name = "Auto Cast (not available rn)",
    CurrentValue = false,
-   Flag = "Cast rod (not available rn)",
+   Flag = "Cast rod",
    Callback = function(Value)
-	-- script goes here
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+
+local casting = false
+
+
+local function castRod()
+    local remote = ReplicatedStorage:FindFirstChild("GameRemotes"):FindFirstChild("CastFishingRod")
+    if remote then
+        remote:FireServer()
+        casting = true
+        task.wait(0.2)
+        casting = false
+    end
+end
+
+
+RunService.Heartbeat:Connect(function()
+    if not casting then
+        castRod()
+    end
+end)
+
+
    end,
 })
 local Toggle = Tab:CreateButton({
@@ -55,7 +104,11 @@ local Toggle = Tab:CreateButton({
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 
+
+
 local reelfinished = ReplicatedStorage.events.reelfinished
+
+
 
 
 while true do
@@ -63,29 +116,42 @@ while true do
         100,
         false
     )
-    wait(1)
+    wait(.2)
 end
+
+
 
 
     end,
 })
 local Toggle = Tab:CreateToggle({
-   Name = "Auto Equip Rod (not available rn)",
+   Name = "Auto Shake(rejoin to turn off)",
    CurrentValue = false,
-   Flag = "Rod Equip",
+   Flag = "RodShake",
    Callback = function(Value)
-    -- put script here
+local vim = game:GetService("VirtualInputManager")
+local playergui = game.Players.LocalPlayer.PlayerGui
+
+
+while task.wait(0.05) do
+    local shakeUi = playergui:FindFirstChild("shakeui")
+    if shakeUi then
+        local button = shakeUi:FindFirstChild("safezone") and shakeUi.safezone:FindFirstChild("button")
+        if button and button.Visible then
+            local pos = button.AbsolutePosition + button.AbsoluteSize / 2
+            vim:SendMouseButtonEvent(pos.x, pos.y, 0, true, game, 1)  -- Press
+            vim:SendMouseButtonEvent(pos.x, pos.y, 0, false, game, 1) -- Release
+        end
+    end
+end   
+
+
    end,
 })
-
-
 local Tab = Window:CreateTab("Extra", 4483362458)
 local Button = Tab:CreateButton({
    Name = "Infinite Yield",
    Callback = function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
    end,
 })
-
-
-
