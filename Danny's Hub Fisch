@@ -57,6 +57,14 @@ local Input = Tab:CreateInput({
   -- script goes here
    end,
 })
+local Toggle = Tab:CreateToggle({
+   Name = "Walk On Water",
+   Flag = "WalkWater",
+   Callback = function(Value)
+
+
+   end,
+})
 
 
 local Toggle = Tab:CreateToggle({
@@ -64,34 +72,6 @@ local Toggle = Tab:CreateToggle({
    CurrentValue = false,
    Flag = "Cast rod",
    Callback = function(Value)
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-
-local player = Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-
-
-local casting = false
-
-
-local function castRod()
-    local remote = ReplicatedStorage:FindFirstChild("GameRemotes"):FindFirstChild("CastFishingRod")
-    if remote then
-        remote:FireServer()
-        casting = true
-        task.wait(0.2)
-        casting = false
-    end
-end
-
-
-RunService.Heartbeat:Connect(function()
-    if not casting then
-        castRod()
-    end
-end)
 
 
    end,
